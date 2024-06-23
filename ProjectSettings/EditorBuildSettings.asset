@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_SRC/Scenes/LoadProgress.unity
     guid: 9e06d5924b99400489c193a459fd633e
+  - enabled: 1
+    path: Assets/_SRC/Scenes/MainMenu.unity
+    guid: d7c60c167c0510a45bbbc4910ed0b0d0
   m_configObjects: {}

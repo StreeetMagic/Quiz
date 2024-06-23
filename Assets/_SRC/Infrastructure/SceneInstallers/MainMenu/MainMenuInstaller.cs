@@ -1,4 +1,3 @@
-using Infrastructure.SceneInstallers.LoadProgress;
 using Zenject;
 
 namespace Infrastructure.SceneInstallers.MainMenu

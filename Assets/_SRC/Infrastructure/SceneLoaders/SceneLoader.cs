@@ -25,8 +25,6 @@ namespace Infrastructure.SceneLoaders
 
     private async UniTaskVoid LoadSceneAsync(SceneId nextScene, Action onLoaded)
     {
-      Debug.Log("Начал грузить сцену: " + nextScene);
-
       AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextScene.ToString());
 
       if (asyncOperation != null)
