@@ -16,7 +16,7 @@ namespace Infrastructure.ConfigProviders
 
     public void LoadConfigs()
     {
-      DefaultProjectProgressConfig = _assetProvider.GetScriptable<DefaultProjectProgressConfig>("DefaultProjectProgressConfig");
+      DefaultProjectProgressConfig = _assetProvider.GetScriptable<DefaultProjectProgressConfig>();
     }
   }
 }
