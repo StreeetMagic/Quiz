@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 namespace Infrastructure.LoadingCurtains
 {
@@ -15,24 +15,16 @@ namespace Infrastructure.LoadingCurtains
     
     public void Hide()
     {
-      Debug.Log("Curtain Hide");
-      
-      StartCoroutine(DoFadeIn());
+      DoFadeIn().Forget();
     }
 
-    private IEnumerator DoFadeIn()
+    private async UniTaskVoid DoFadeIn()
     {
-      Debug.Log("Curtain DoFadeIn"); 
-      
       while (Curtain.alpha > 0)
       {
         Curtain.alpha -= 0.03f;
-        yield return new WaitForSeconds(0.03f);
-        
-        Debug.Log("Curtain DoFadeIn " + Curtain.alpha); 
+        await UniTask.Delay(30);
       }
-      
-      Debug.Log("Curtain DoFadeIn " + Curtain.alpha);
       
       gameObject.SetActive(false);
     }
