@@ -1,4 +1,4 @@
-using SceneLoaders;
+using Infrastructure.SceneLoaders;
 using UnityEngine;
 using Zenject;
 

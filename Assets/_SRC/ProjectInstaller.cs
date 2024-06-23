@@ -1,15 +1,14 @@
-using AssetProviders;
-using AudioServices;
-using ConfigServices;
-using LoadingCurtains;
-using Loggers;
-using PersistentProgresses;
-using RandomServices;
-using SaveLoadServices;
-using SceneLoaders;
-using Unity.VisualScripting;
+using Infrastructure.AssetProviders;
+using Infrastructure.AudioServices;
+using Infrastructure.ConfigProviders;
+using Infrastructure.LoadingCurtains;
+using Infrastructure.Loggers;
+using Infrastructure.PersistentProgresses;
+using Infrastructure.RandomServices;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.SceneLoaders;
+using Infrastructure.ZenjectFactories.ProjectContext;
 using Zenject;
-using ZenjectFactories.ProjectContext;
 
 public class ProjectInstaller : MonoInstaller
 {
