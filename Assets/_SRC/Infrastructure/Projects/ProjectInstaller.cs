@@ -18,7 +18,7 @@ namespace Infrastructure.Projects
     {
       Container.BindInterfacesAndSelfTo<ProjectInitializer>().FromInstance(GetComponent<ProjectInitializer>()).AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<ProjectZenjectFactory>().AsSingle();
-      Container.BindInterfacesAndSelfTo<LoadingCurtain>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
+      Container.BindInterfacesAndSelfTo<LoadingCurtain>().FromComponentInNewPrefabResource(nameof(LoadingCurtain)).AsSingle().NonLazy();
 
       Container.BindInterfacesAndSelfTo<RandomService>().AsSingle();
 

@@ -3,7 +3,7 @@ using Infrastructure.SceneLoaders;
 using UnityEngine;
 using Zenject;
 
-namespace Infrastructure.Scenes.LoadConfigs
+namespace Infrastructure.SceneInstallers.LoadConfigs
 {
   public class LoadConfigsInitializer : MonoBehaviour, IInitializable
   {
