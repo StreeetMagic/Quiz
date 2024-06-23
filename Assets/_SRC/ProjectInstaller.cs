@@ -14,7 +14,7 @@ public class ProjectInstaller : MonoInstaller
 {
   public override void InstallBindings()
   {
-    Container.BindInterfacesAndSelfTo<ProjectInitilizer.ProjectInitializer>().FromInstance(GetComponent<ProjectInitilizer.ProjectInitializer>()).AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<ProjectInitializer>().FromInstance(GetComponent<ProjectInitializer>()).AsSingle().NonLazy();
     Container.BindInterfacesAndSelfTo<ProjectZenjectFactory>().AsSingle();
     Container.BindInterfacesAndSelfTo<LoadingCurtain>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
 
@@ -22,11 +22,18 @@ public class ProjectInstaller : MonoInstaller
 
     Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle();
     Container.BindInterfacesAndSelfTo<PersistentProgressService>().AsSingle();
-    Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle();
+    Container.Bind<SceneLoader>().AsSingle();
     Container.BindInterfacesAndSelfTo<AudioService>().AsSingle().NonLazy();
     Container.BindInterfacesAndSelfTo<DebugLogger>().AsSingle();
 
     Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle();
     Container.BindInterfacesAndSelfTo<ConfigProvider>().AsSingle();
+  }
+
+  public override void Start()
+  {
+    base.Start();
+      
+     Container.Resolve<SceneLoader>().Load(SceneId.LoadConfigs);
   }
 }
