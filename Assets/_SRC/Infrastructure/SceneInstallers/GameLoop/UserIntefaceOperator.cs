@@ -56,8 +56,7 @@ namespace Infrastructure.SceneInstallers.GameLoop
 
     public UserIntefaceOperator FadeAlphaTo(Image image, float duration, float value)
     {
-      image
-        .DOFade(value, duration);
+      image.DOFade(value, duration);
 
       return this;
     }
