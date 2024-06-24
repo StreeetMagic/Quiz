@@ -18,7 +18,7 @@ namespace Infrastructure.SceneInstallers.LoadProgress
 
       _saveLoadService.LoadProgress();
 
-      _sceneLoader.Load(SceneId.MainMenu);
+      _sceneLoader.Load(SceneId.GameLoop);
     }
   }
 }

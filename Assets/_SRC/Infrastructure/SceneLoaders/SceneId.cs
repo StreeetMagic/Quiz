@@ -9,6 +9,5 @@ namespace Infrastructure.SceneLoaders
     LoadProgress = 12,
     
     GameLoop = 100,
-    MainMenu = 101,
   }
 }

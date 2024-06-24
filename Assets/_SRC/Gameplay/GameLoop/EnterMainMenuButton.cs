@@ -18,7 +18,7 @@ namespace Gameplay.GameLoop
 
     private void Awake()
     {
-      _button.onClick.AddListener(() => _sceneLoader.Load(SceneId.MainMenu));
+      _button.onClick.AddListener(() => _sceneLoader.Load(SceneId.GameLoop));
     }
   }
 }
