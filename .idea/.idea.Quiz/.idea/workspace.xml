@@ -15,6 +15,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/_SRC/Infrastructure/SceneInstallers/GameLoop/GameLoopInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SRC/Infrastructure/SceneInstallers/GameLoop/UserIntefaceOperator.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="SWEA" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
