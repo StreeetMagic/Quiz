@@ -10,7 +10,13 @@ namespace Gameplay.GameLoop
   {
     [SerializeField] private Button _button;
 
-    [Inject] private StateMachine _stateMachine;
+    private StateMachine _stateMachine;
+
+    [Inject]
+    private void Construct(StateMachine stateMachine)
+    {
+      _stateMachine = stateMachine;
+    }
 
     private void Awake()
     {

@@ -1,5 +1,6 @@
 using Infrastructure.AssetProviders;
 using Infrastructure.PersistentProgresses;
+using Infrastructure.Projects;
 
 namespace Infrastructure.ConfigProviders
 {
@@ -13,10 +14,12 @@ namespace Infrastructure.ConfigProviders
     }
 
     public DefaultProjectProgressConfig DefaultProjectProgressConfig { get; private set; }
+    public ProjectConfig ProjectConfig { get; private set; }
 
     public void LoadConfigs()
     {
       DefaultProjectProgressConfig = _assetProvider.GetScriptable<DefaultProjectProgressConfig>();
+      ProjectConfig = _assetProvider.GetScriptable<ProjectConfig>();
     }
   }
 }
