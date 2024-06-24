@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Infrastructure.StateMachines
 {
   public class StateMachine
@@ -35,6 +37,7 @@ namespace Infrastructure.StateMachines
       ActiveState?.Exit();
       var state = _stateProvider.GetState<TState>();
       ActiveState = state;
+      Debug.Log("Сейчас стейт " + state.GetType().Name);
       return state;
     }
   }

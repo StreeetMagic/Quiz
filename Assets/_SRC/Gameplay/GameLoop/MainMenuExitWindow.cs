@@ -1,21 +1,23 @@
-﻿using System;
+﻿using Gameplay.GameLoop.StateMachines;
 using Infrastructure;
+using Infrastructure.StateMachines;
 using Zenject;
 
 namespace Gameplay.GameLoop
 {
   public class MainMenuExitWindow : Window
   {
-    [Inject] private GameManager _gameManager;
-    
-    private void OnEnable()
+    private StateMachine _stateMachine;
+
+    [Inject]
+    private void Construct(StateMachine stateMachine)
     {
-      _gameManager.EnableMainMenuFade();
+      _stateMachine = stateMachine;
     }
 
     private void OnDisable()
     {
-      _gameManager.DisableMainMenuFade();
+      _stateMachine.Enter<MainMenuState>();
     }
   }
 }

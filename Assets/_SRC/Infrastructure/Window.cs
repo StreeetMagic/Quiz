@@ -1,13 +1,11 @@
-﻿using Infrastructure.PersistentProgresses;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace Infrastructure
 {
   public abstract class Window : MonoBehaviour
   {
-    [SerializeField] private Button[] CloseButtons;
+    [SerializeField] protected Button[] CloseButtons;
 
     private void Awake() =>
       OnAwake();

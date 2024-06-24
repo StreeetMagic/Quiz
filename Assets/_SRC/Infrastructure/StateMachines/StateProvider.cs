@@ -1,24 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using Infrastructure.ZenjectFactories.SceneContext;
 
 namespace Infrastructure.StateMachines
 {
   public class StateProvider
   {
-    private readonly Dictionary<Type, IExitableState> _states;
+    private Dictionary<Type, IExitableState> _states;
 
-    public IReadOnlyDictionary<Type, IExitableState> States => _states;
-
-    public StateProvider(GameLoopZenjectFactory gameLoopZenjectFactory)
+    public void Initialize(Dictionary<Type, IExitableState> states)
     {
-      _states = new Dictionary<Type, IExitableState>()
-      {
-        { typeof(BootstrapState), gameLoopZenjectFactory.InstantiateNative<BootstrapState>() },
-        { typeof(MainMenuState), gameLoopZenjectFactory.InstantiateNative<MainMenuState>() }
-      };
+      _states = states;  
     }
-    
+
     public TState GetState<TState>() where TState : class, IExitableState
     {
       return _states[typeof(TState)] as TState;

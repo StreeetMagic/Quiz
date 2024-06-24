@@ -1,24 +1,33 @@
-﻿using Infrastructure.SceneLoaders;
+﻿using Gameplay.GameLoop.StateMachines;
+using Infrastructure.SceneInstallers.GameLoop;
+using Infrastructure.StateMachines;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
 namespace Gameplay.GameLoop
 {
-  public class EnterMainMenuButton : MonoBehaviour
+  public class GameLoopOpenFinishButton : MonoBehaviour
   {
     [SerializeField] private Button _button;
 
-    private SceneLoader _sceneLoader;
-  
-    [Inject] private void Construct(SceneLoader sceneLoader)
+    private StateMachine _stateMachine;
+
+    [Inject]
+    private void Construct(StateMachine stateMachine)
     {
-      _sceneLoader = sceneLoader;
+      _stateMachine = stateMachine;
     }
 
     private void Awake()
     {
-      _button.onClick.AddListener(() => _sceneLoader.Load(SceneId.GameLoop));
+      _button.onClick.AddListener(() =>
+      {
+        if (_stateMachine.ActiveState is not ChooseAnswerState)
+          return;
+
+        _stateMachine.Enter<ReturnToMainMenuState>();
+      });
     }
   }
 }

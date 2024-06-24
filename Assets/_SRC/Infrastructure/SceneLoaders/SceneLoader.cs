@@ -40,15 +40,5 @@ namespace Infrastructure.SceneLoaders
       SceneLoaded?.Invoke(nextScene);
       CurrentScene = nextScene;
     }
-
-    private void LoadScene(SceneId nextScene, Action onLoaded = null)
-    {
-      SceneManager.LoadScene(nextScene.ToString());
-      _loadedScenes.Add(nextScene);
-
-      onLoaded?.Invoke();
-      SceneLoaded?.Invoke(nextScene);
-      CurrentScene = nextScene;
-    }
   }
 }
