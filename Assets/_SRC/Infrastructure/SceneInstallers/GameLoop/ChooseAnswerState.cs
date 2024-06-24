@@ -5,7 +5,6 @@ using UnityEngine;
 namespace Infrastructure.SceneInstallers.GameLoop
 {
   public class ChooseAnswerState : IPayloadedState<bool>
-
   {
     private readonly UserIntefaceOperator _uiOperator;
     private readonly MainCanvasRoot _root;

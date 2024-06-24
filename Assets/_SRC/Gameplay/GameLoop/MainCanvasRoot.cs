@@ -15,6 +15,7 @@ namespace Gameplay.GameLoop
     public float FadeValue => .9f;
     public float AnimationDuration => .3f;
 
+    //TODO добавлять в массив
     private void Awake()
     {
       if (!MainMenuHeadsUpDisplay
@@ -30,7 +31,7 @@ namespace Gameplay.GameLoop
       MainMenuHeadsUpDisplay.gameObject.SetActive(false);
       MainMenuExitWindow.gameObject.SetActive(false);
       MainMenuFade.gameObject.SetActive(false);
-      
+
       GameLoopHeadsUpDisplay.gameObject.SetActive(false);
       GameLoopFinishWindow.gameObject.SetActive(false);
     }
