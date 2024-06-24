@@ -1,5 +1,5 @@
-using Gameplay.GameLoop.StateMachines;
-using Infrastructure.StateMachines;
+using Gameplay.GameLoop;
+using Infrastructure.LoadingCurtains;
 using UnityEngine;
 using Zenject;
 
@@ -7,14 +7,23 @@ namespace Infrastructure.SceneInstallers.GameLoop
 {
   public class GameLoopInitializer : MonoBehaviour, IInitializable
   {
-    [Inject] private StateMachine _stateMachine;
-    [Inject] private StateProvider _stateProvider;
-    [Inject] private StateFactory _stateFactory;
+    private LoadingCurtain _loadingCurtain;
+    private MainCanvasRoot _root;
+    private UserIntefaceOperator _uiOperator;
+
+    [Inject]
+    private void Construct(LoadingCurtain loadingCurtain, MainCanvasRoot root, UserIntefaceOperator uiOperator)
+    {
+      _loadingCurtain = loadingCurtain;
+      _root = root;
+      _uiOperator = uiOperator;
+    }
 
     public void Initialize()
     {
-      _stateProvider.Initialize(_stateFactory.CreateStates());
-      _stateMachine.Enter<BootstrapState>();
+      _loadingCurtain.Hide();
+      _root.DisableAll();
+      _uiOperator.Enable(_root.MainMenuHeadsUpDisplay);
     }
   }
 }

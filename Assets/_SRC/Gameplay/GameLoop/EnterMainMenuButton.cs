@@ -1,6 +1,4 @@
-﻿using Gameplay.GameLoop.StateMachines;
-using Infrastructure.SceneInstallers.GameLoop;
-using Infrastructure.StateMachines;
+﻿using Infrastructure.SceneInstallers.GameLoop;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,22 +9,24 @@ namespace Gameplay.GameLoop
   {
     [SerializeField] private Button _button;
 
-    private StateMachine _stateMachine;
-
+    private UserIntefaceOperator _uiOperator;
+    private MainCanvasRoot _root;
+    
     [Inject]
-    private void Construct(StateMachine stateMachine)
+    public void Construct(UserIntefaceOperator uiOperator, MainCanvasRoot root)
     {
-      _stateMachine = stateMachine;
+      _uiOperator = uiOperator;
+      _root = root;
     }
 
     private void Awake()
     {
       _button.onClick.AddListener(() =>
       {
-        if (_stateMachine.ActiveState is not ChooseAnswerState)
-          return;
-
-        _stateMachine.Enter<ReturnToMainMenuState>();
+        _uiOperator
+          .PlaceRight(_root.GameLoopFinishWindow, _root.Width)
+          .Enable(_root.GameLoopFinishWindow)
+          .SlideFromRight(_root.GameLoopFinishWindow, _root.AnimationDuration);
       });
     }
   }

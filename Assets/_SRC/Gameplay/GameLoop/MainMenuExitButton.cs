@@ -1,5 +1,4 @@
-﻿using Gameplay.GameLoop.StateMachines;
-using Infrastructure.StateMachines;
+﻿using Infrastructure.SceneInstallers.GameLoop;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -10,22 +9,30 @@ namespace Gameplay.GameLoop
   {
     [SerializeField] private Button _button;
 
-    private StateMachine _stateMachine;
-
+    private UserIntefaceOperator _uiOperator;
+    private MainCanvasRoot _root;
+    
     [Inject]
-    private void Construct(StateMachine stateMachine)
+    public void Construct(UserIntefaceOperator uiOperator, MainCanvasRoot root)
     {
-      _stateMachine = stateMachine;
+      _uiOperator = uiOperator;
+      _root = root;
     }
 
     private void Awake()
     {
       _button.onClick.AddListener(() =>
       {
-        if (_stateMachine.ActiveState is not MainMenuState)
-          return;
+        _uiOperator
+          .Enable(_root.MainMenuExitWindow)
+          .ScaleFromTo(_root.MainMenuExitWindow, 0, 1, _root.AnimationDuration);
 
-        _stateMachine.Enter<ExitMainMenuState>();
+        var image = _root.MainMenuFade.GetComponent<Image>();
+
+        _uiOperator
+          .DisableAlpha(image)
+          .Enable(_root.MainMenuFade)
+          .FadeAlphaTo(image, _root.AnimationDuration, _root.FadeValue);
       });
     }
   }
