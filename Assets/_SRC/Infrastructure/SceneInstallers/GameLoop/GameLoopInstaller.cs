@@ -1,6 +1,6 @@
-using Gameplay.GameLoop;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
+using UserInterface;
 using Zenject;
 
 namespace Infrastructure.SceneInstallers.GameLoop

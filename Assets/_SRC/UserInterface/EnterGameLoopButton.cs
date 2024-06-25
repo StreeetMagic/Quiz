@@ -1,11 +1,11 @@
-﻿using Infrastructure.SceneInstallers.GameLoop;
+using Infrastructure.SceneInstallers.GameLoop;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Gameplay.GameLoop
+namespace UserInterface
 {
-  public class GameLoopOpenFinishButton : MonoBehaviour
+  public class EnterGameLoopButton : MonoBehaviour
   {
     [SerializeField] private Button _button;
 
@@ -23,10 +23,18 @@ namespace Gameplay.GameLoop
     {
       _button.onClick.AddListener(() =>
       {
+        RectTransform hud = _root.GameLoopHeadsUpDisplay;
+
         _uiOperator
-          .PlaceRight(_root.GameLoopFinishWindow, _root.Width)
-          .Enable(_root.GameLoopFinishWindow)
-          .SlideFromRight(_root.GameLoopFinishWindow, _root.AnimationDuration);
+          .PlaceRight(hud, _root.Width)
+          .Enable(hud)
+          .SlideFromRight(hud, _root.AnimationDuration);
+        
+        var image = _root.MainMenuFade.GetComponent<Image>();
+
+        _uiOperator
+          .DisableAlpha(image)
+          .Disable(_root.MainMenuFade);
       });
     }
   }

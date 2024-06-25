@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.GameLoop.GameLoopPanels
+namespace UserInterface.GameLoopPanels
 {
   public class GameLoopPanel : MonoBehaviour
   {

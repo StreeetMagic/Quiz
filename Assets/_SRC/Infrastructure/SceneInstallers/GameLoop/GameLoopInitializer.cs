@@ -1,6 +1,6 @@
-using Gameplay.GameLoop;
 using Infrastructure.LoadingCurtains;
 using UnityEngine;
+using UserInterface;
 using Zenject;
 
 namespace Infrastructure.SceneInstallers.GameLoop

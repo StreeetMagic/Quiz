@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.GameLoop.AnswerButtons
+namespace UserInterface.AnswerButtons
 {
   public class AnswerButton : MonoBehaviour
   {

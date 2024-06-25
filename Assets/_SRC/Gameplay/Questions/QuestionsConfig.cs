@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Gameplay.GameLoop.Questions
+namespace Gameplay.Questions
 {
   [CreateAssetMenu(fileName = "QuestionsConfig", menuName = "Configs/QuestionsConfig")]
   public class QuestionsConfig : ScriptableObject

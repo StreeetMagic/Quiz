@@ -1,7 +1,6 @@
 ﻿using Infrastructure;
-using Zenject;
 
-namespace Gameplay.GameLoop
+namespace UserInterface
 {
   public class MainMenuExitWindow : Window
   {

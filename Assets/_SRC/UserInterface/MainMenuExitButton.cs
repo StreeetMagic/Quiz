@@ -1,11 +1,11 @@
-using Infrastructure.SceneInstallers.GameLoop;
+﻿using Infrastructure.SceneInstallers.GameLoop;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Gameplay.GameLoop
+namespace UserInterface
 {
-  public class EnterGameLoopButton : MonoBehaviour
+  public class MainMenuExitButton : MonoBehaviour
   {
     [SerializeField] private Button _button;
 
@@ -23,18 +23,16 @@ namespace Gameplay.GameLoop
     {
       _button.onClick.AddListener(() =>
       {
-        RectTransform hud = _root.GameLoopHeadsUpDisplay;
-
         _uiOperator
-          .PlaceRight(hud, _root.Width)
-          .Enable(hud)
-          .SlideFromRight(hud, _root.AnimationDuration);
-        
+          .Enable(_root.MainMenuExitWindow)
+          .ScaleFromTo(_root.MainMenuExitWindow, 0, 1, _root.AnimationDuration);
+
         var image = _root.MainMenuFade.GetComponent<Image>();
 
         _uiOperator
           .DisableAlpha(image)
-          .Disable(_root.MainMenuFade);
+          .Enable(_root.MainMenuFade)
+          .FadeAlphaTo(image, _root.AnimationDuration, _root.FadeValue);
       });
     }
   }
