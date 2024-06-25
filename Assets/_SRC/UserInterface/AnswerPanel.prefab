@@ -143,6 +143,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2063879821393079860}
+  - component: {fileID: 1123124831460036300}
+  - component: {fileID: 7549463847976670705}
+  - component: {fileID: 8753006273803335864}
+  - component: {fileID: 1847255892541206469}
   m_Layer: 5
   m_Name: AnswerPanel
   m_TagString: Untagged
@@ -172,6 +176,60 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1100, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1123124831460036300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039344952300177340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2c8e628a2affc4db54f3b4c575e2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObject: {fileID: 5199567001195349885}
+--- !u!114 &7549463847976670705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039344952300177340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7170cf7920b41f08101424ed7b3cf34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObject: {fileID: 7806438759118647476}
+--- !u!114 &8753006273803335864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039344952300177340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50134b6bf627487990367586106501ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _answerIndexHolder: {fileID: 3738690687140312039}
+  _gameObject: {fileID: 8574597870059667263}
+--- !u!114 &1847255892541206469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039344952300177340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95112f35f2d47c78f9b94d0c6cfb449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _answerIndexHolder: {fileID: 3738690687140312039}
+  _gameObject: {fileID: 6203259108548580647}
 --- !u!1 &2585856143765977779
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +242,7 @@ GameObject:
   - component: {fileID: 2350147379485408021}
   - component: {fileID: 7396760223309870492}
   m_Layer: 5
-  m_Name: Timer_left
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -320,7 +378,7 @@ GameObject:
   - component: {fileID: 7112979616940241719}
   - component: {fileID: 8032414699740658051}
   m_Layer: 5
-  m_Name: Timer_left
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,7 +514,7 @@ GameObject:
   - component: {fileID: 1203000822612231538}
   - component: {fileID: 4265059712987934635}
   m_Layer: 5
-  m_Name: Robot_icon
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -531,7 +589,7 @@ GameObject:
   - component: {fileID: 5362773945133050914}
   - component: {fileID: 6081768545360507622}
   m_Layer: 5
-  m_Name: alarm_icon (1)
+  m_Name: PlayerClock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -742,7 +800,7 @@ GameObject:
   - component: {fileID: 5124897683261587007}
   - component: {fileID: 1428408086239548404}
   m_Layer: 5
-  m_Name: Robot_icon
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1002,7 +1060,7 @@ GameObject:
   - component: {fileID: 8875011920059953552}
   - component: {fileID: 1823151632483642809}
   m_Layer: 5
-  m_Name: alarm_icon
+  m_Name: BotClock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1079,7 +1137,7 @@ GameObject:
   - component: {fileID: 333631413127753055}
   - component: {fileID: 6140064393805008761}
   m_Layer: 5
-  m_Name: Robot_icon
+  m_Name: RobotIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1154,6 +1212,7 @@ GameObject:
   - component: {fileID: 2679217041059145804}
   - component: {fileID: 6698767509387443592}
   - component: {fileID: 3738690687140312039}
+  - component: {fileID: 1508750289299998365}
   m_Layer: 5
   m_Name: AnswerButton
   m_TagString: Untagged
@@ -1251,6 +1310,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1f802de32eb104da090d3d3042725d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1508750289299998365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394099709197966079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32163c9c6b4c4d80a9dbf199320056ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 6698767509387443592}
+  _answerIndexHolder: {fileID: 3738690687140312039}
 --- !u!1 &8456514412061972875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,8 +1512,9 @@ GameObject:
   - component: {fileID: 1047352489436135314}
   - component: {fileID: 8809669647319576215}
   - component: {fileID: 1462403364348209064}
+  - component: {fileID: 4795639061359627633}
   m_Layer: 5
-  m_Name: Robot_container
+  m_Name: RobotContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1504,3 +1578,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4795639061359627633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856314169069713784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecd37027985c934bb59c4ee067c7b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _robotIcon: {fileID: 8194550161757051330}
+  _background: {fileID: 1462403364348209064}

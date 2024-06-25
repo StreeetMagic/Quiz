@@ -14,6 +14,7 @@ namespace Infrastructure.SceneInstallers.GameLoop
     
     [Inject] private GameMatchProvider _gameMatchProvider;
     [Inject] private GameMatchFactory _gameMatchFactory;
+    [Inject] private GameMatchStateProvider _gameMatchStateProvider;
 
     [Inject]
     private void Construct(LoadingCurtain loadingCurtain, MainCanvasRoot root, UserIntefaceOperator uiOperator)
@@ -29,7 +30,7 @@ namespace Infrastructure.SceneInstallers.GameLoop
       _root.DisableAll();
       _uiOperator.Enable(_root.MainMenuHeadsUpDisplay);
       
-      _gameMatchProvider.Instance.Value = _gameMatchFactory.Create();
+      _gameMatchStateProvider.CurrentState.Value = GameMatchStateId.MainMenu;
     }
   }
 }

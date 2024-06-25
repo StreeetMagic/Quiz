@@ -9,6 +9,7 @@ namespace UserInterface
     [field: SerializeField] public RectTransform MainMenuFade { get; private set; }
     [field: SerializeField] public RectTransform MainMenuExitWindow { get; private set; }
     [field: SerializeField] public RectTransform GameLoopHeadsUpDisplay { get; private set; }
+    [field: SerializeField] public RectTransform GameLoopNextRoundButton { get; private set; }
     [field: SerializeField] public RectTransform GameLoopFinishWindow { get; private set; }
     [field: SerializeField] public RectTransform GameLoopWinPanel { get; private set; }
     [field: SerializeField] public RectTransform GameLoopLosePanel { get; private set; }
@@ -27,6 +28,7 @@ namespace UserInterface
         MainMenuFade,
         MainMenuExitWindow,
         GameLoopHeadsUpDisplay,
+        GameLoopNextRoundButton,
         GameLoopFinishWindow,
         GameLoopWinPanel,
         GameLoopLosePanel

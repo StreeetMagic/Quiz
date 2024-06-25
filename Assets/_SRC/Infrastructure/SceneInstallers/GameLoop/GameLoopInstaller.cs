@@ -2,6 +2,7 @@ using Gameplay;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 using UserInterface;
+using UserInterface.AnswerButtons;
 using Zenject;
 
 namespace Infrastructure.SceneInstallers.GameLoop
@@ -21,6 +22,8 @@ namespace Infrastructure.SceneInstallers.GameLoop
       Container.BindInterfacesAndSelfTo<QuestionStorage>().AsSingle();
       Container.BindInterfacesAndSelfTo<GameMatchFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<GameMatchProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<GameMatchStateProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<CurrentPlayerAnswerIndexHolder>().AsSingle();
     }
   }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Gameplay
 {
@@ -9,17 +10,15 @@ namespace Gameplay
     public CurrentQuestionProvider(GameMatchProvider gameMatchProvider)
     {
       _gameMatchProvider = gameMatchProvider;
-
-      _gameMatchProvider.Instance.ValueChanged += OnGameMatchChanged;
     }
 
     public event Action<Question> Changed;
 
     public Question GetCurrentQuestion => _gameMatchProvider.Instance.Value.Questions.Value.Peek();
 
-    private void OnGameMatchChanged(GameMatch match)
+    public void QuestionChanged()
     {
-      Changed?.Invoke(match.Questions.Value.Peek());
+      Changed?.Invoke(GetCurrentQuestion);
     }
   }
 }

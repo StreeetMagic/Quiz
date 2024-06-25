@@ -4,6 +4,6 @@ namespace Gameplay
 {
   public class GameMatchProvider
   {
-    public ReactiveProperty<GameMatch> Instance { get; set; } = new();
+    public ReactiveProperty<GameMatch> Instance { get; } = new();
   }
 }

@@ -9,14 +9,22 @@ namespace Gameplay
   public class GameMatchFactory
   {
     private readonly ConfigProvider _configProvider;
+    private readonly GameMatchProvider _gameMatchProvider;
 
-    public GameMatchFactory(ConfigProvider configProvider)
+    public GameMatchFactory(ConfigProvider configProvider,
+      GameMatchStateProvider gameMatchStateProvider, GameMatchProvider gameMatchProvider)
     {
       _configProvider = configProvider;
+      _gameMatchProvider = gameMatchProvider;
+
+      gameMatchStateProvider.CurrentState.ValueChanged += Create;
     }
 
-    public GameMatch Create()
+    private void Create(GameMatchStateId state)
     {
+      if (state != GameMatchStateId.CreateMatch)
+        return;
+
       if (_configProvider.QuestionsConfig.Questions.Length < _configProvider.ProjectConfig.QuestionCount)
         throw new Exception("Not enough questions");
 
@@ -35,7 +43,7 @@ namespace Gameplay
 
       Shuffle(questions);
 
-      return new GameMatch(questions);
+      _gameMatchProvider.Instance.Value = new GameMatch(questions);
     }
 
     private void Shuffle(List<Question> questions)

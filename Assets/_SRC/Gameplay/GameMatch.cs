@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Infrastructure.ConfigProviders;
 using Utilities;
 
 namespace Gameplay
