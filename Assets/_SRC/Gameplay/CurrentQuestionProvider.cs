@@ -9,18 +9,12 @@ namespace Gameplay
     public string Value { get; set; }
     public string[] Answers { get; set; }
 
-    private QuestionsConfig _questionsConfig;
+    public CurrentQuestionProvider(ConfigProvider configProvider)
+    {
+      var questionsConfig = configProvider.QuestionsConfig;
 
-    [Inject]
-    private void Construct(ConfigProvider configProvider)
-    {
-      _questionsConfig = configProvider.QuestionsConfig;
-    }
-    
-    public CurrentQuestionProvider()
-    {
-      Value = _questionsConfig.Questions[0].Question;
-      Answers = _questionsConfig.Questions[0].Answers;
+      Value = questionsConfig.Questions[0].Question;
+      Answers = questionsConfig.Questions[0].Answers;
     }
   }
 }

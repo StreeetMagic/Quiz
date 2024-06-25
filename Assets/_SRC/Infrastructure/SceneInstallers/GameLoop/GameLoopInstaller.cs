@@ -1,3 +1,4 @@
+using Gameplay;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 using UserInterface;
@@ -16,6 +17,7 @@ namespace Infrastructure.SceneInstallers.GameLoop
       Container.BindInterfacesAndSelfTo<MainCanvasRoot>().FromInstance(_mainCanvasRoot).AsSingle();
       Container.BindInterfacesAndSelfTo<UserIntefaceOperator>().AsSingle();
       Container.BindInterfacesAndSelfTo<GameLoopZenjectFactory>().AsSingle();
+      Container.BindInterfacesAndSelfTo<CurrentQuestionProvider>().AsSingle();
     }
   }
 }

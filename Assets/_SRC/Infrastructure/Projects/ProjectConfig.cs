@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Infrastructure.Projects
 {
@@ -6,5 +7,8 @@ namespace Infrastructure.Projects
   public class ProjectConfig : ScriptableObject
   {
     [field: SerializeField] public int AnswerCount { get; private set; }
+    [SerializeField] private char[] _answerLetters;
+
+    public char[] AnswerLetters => _answerLetters.ToArray();
   }
 }
