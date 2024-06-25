@@ -24,6 +24,10 @@ namespace Infrastructure.SceneInstallers.GameLoop
       Container.BindInterfacesAndSelfTo<GameMatchProvider>().AsSingle();
       Container.BindInterfacesAndSelfTo<GameMatchStateProvider>().AsSingle();
       Container.BindInterfacesAndSelfTo<CurrentPlayerAnswerIndexHolder>().AsSingle();
+      Container.BindInterfacesAndSelfTo<BotAnswerProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<PlayerTimerProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<BotTimerProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<PlayerAnswerProvider>().AsSingle();
     }
   }
 }

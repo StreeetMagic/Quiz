@@ -13,6 +13,7 @@ namespace UserInterface.AnswerButtons
 
     [Inject] private CurrentPlayerAnswerIndexHolder _currentPlayerAnswerIndexHolder;
     [Inject] private GameMatchStateProvider _gameMatchStateProvider;
+    [Inject] private BotAnswerProvider _botAnswerProvider;
 
     private void Awake()
     {
@@ -22,6 +23,8 @@ namespace UserInterface.AnswerButtons
           return;
 
         _currentPlayerAnswerIndexHolder.Index.Value = _answerIndexHolder.Index.Value;
+        _botAnswerProvider.GenerateAnswer();
+        
         _gameMatchStateProvider.CurrentState.Value = GameMatchStateId.AnswerChoosen;
       });
     }

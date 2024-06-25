@@ -27,6 +27,7 @@ namespace UserInterface
       _button.onClick.AddListener(() =>
       {
         _gameMatchStateProvider.CurrentState.Value = GameMatchStateId.CreateMatch;
+        
         _gameMatchStateProvider.CurrentState.Value = GameMatchStateId.ChooseAnswer;
         
         RectTransform hud = _root.GameLoopHeadsUpDisplay;

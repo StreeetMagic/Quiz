@@ -10,10 +10,12 @@ namespace Gameplay
   {
     private readonly ConfigProvider _configProvider;
     private readonly GameMatchProvider _gameMatchProvider;
+    private readonly GameMatchStateProvider _gameMatchStateProvider;
 
     public GameMatchFactory(ConfigProvider configProvider,
       GameMatchStateProvider gameMatchStateProvider, GameMatchProvider gameMatchProvider)
     {
+      _gameMatchStateProvider = gameMatchStateProvider;
       _configProvider = configProvider;
       _gameMatchProvider = gameMatchProvider;
 
@@ -24,6 +26,8 @@ namespace Gameplay
     {
       if (state != GameMatchStateId.CreateMatch)
         return;
+
+      Debug.Log("Create match");
 
       if (_configProvider.QuestionsConfig.Questions.Length < _configProvider.ProjectConfig.QuestionCount)
         throw new Exception("Not enough questions");
@@ -43,7 +47,12 @@ namespace Gameplay
 
       Shuffle(questions);
 
-      _gameMatchProvider.Instance.Value = new GameMatch(questions);
+      for (var i = 0; i < questions.Count; i++)
+      {
+        Question question = questions[i];
+      }
+
+      _gameMatchProvider.Instance.Value = new GameMatch(questions, _gameMatchStateProvider);
     }
 
     private void Shuffle(List<Question> questions)

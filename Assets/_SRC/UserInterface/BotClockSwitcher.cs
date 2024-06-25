@@ -1,5 +1,6 @@
 ﻿using Gameplay;
 using UnityEngine;
+using UserInterface.AnswerButtons;
 using Zenject;
 
 namespace UserInterface
@@ -7,7 +8,9 @@ namespace UserInterface
   public class BotClockSwitcher : MonoBehaviour
   {
     [SerializeField] private GameObject _gameObject;
-
+    [SerializeField] private AnswerIndexHolder _answerIndexHolder;
+    
+    [Inject] private BotAnswerProvider _botAnswerProvider;
     [Inject] private GameMatchStateProvider _gameMatchStateProvider;
 
     private void OnEnable()
@@ -23,13 +26,14 @@ namespace UserInterface
 
     private void SwitchIcon(GameMatchStateId state)
     {
-      if (state != GameMatchStateId.AnswerChoosen)
+      if (state == GameMatchStateId.AnswerChoosen)
       {
-        _gameObject.SetActive(false);
+        if (_answerIndexHolder.Index.Value == _botAnswerProvider.Index.Value)
+          _gameObject.SetActive(true);
       }
       else
       {
-        _gameObject.SetActive(true);
+        _gameObject.SetActive(false);
       }
     }
   }

@@ -21,24 +21,26 @@ namespace UserInterface
       _currentQuestionProvider = currentQuestionProvider;
     }
 
-    private void Start()
-    {
-      DisplayText(answerIndexHolder.Index.Value);
-    }
-
     private void OnEnable()
     {
-      answerIndexHolder.Index.ValueChanged += DisplayText;
+      DisplayText(answerIndexHolder.Index.Value);
+      _currentQuestionProvider.Changed += OnChanged;
     }
 
     private void OnDisable()
     {
-      answerIndexHolder.Index.ValueChanged -= DisplayText;
+      _currentQuestionProvider.Changed -= OnChanged;
+    }
+
+    private void OnChanged(Question question)
+    {
+      DisplayText(answerIndexHolder.Index.Value);
     }
 
     private void DisplayText(int index)
     {
-      _text.text = _currentQuestionProvider.GetCurrentQuestion.Answers[index];
+      if (_currentQuestionProvider.TryGetCurrentQuestion(out var question))
+        _text.text = question.Answers[index];
     }
   }
 }
