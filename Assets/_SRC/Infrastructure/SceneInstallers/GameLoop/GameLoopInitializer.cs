@@ -1,3 +1,4 @@
+using Gameplay;
 using Infrastructure.LoadingCurtains;
 using UnityEngine;
 using UserInterface;
@@ -10,6 +11,9 @@ namespace Infrastructure.SceneInstallers.GameLoop
     private LoadingCurtain _loadingCurtain;
     private MainCanvasRoot _root;
     private UserIntefaceOperator _uiOperator;
+    
+    [Inject] private GameMatchProvider _gameMatchProvider;
+    [Inject] private GameMatchFactory _gameMatchFactory;
 
     [Inject]
     private void Construct(LoadingCurtain loadingCurtain, MainCanvasRoot root, UserIntefaceOperator uiOperator)
@@ -24,6 +28,8 @@ namespace Infrastructure.SceneInstallers.GameLoop
       _loadingCurtain.Hide();
       _root.DisableAll();
       _uiOperator.Enable(_root.MainMenuHeadsUpDisplay);
+      
+      _gameMatchProvider.Instance.Value = _gameMatchFactory.Create();
     }
   }
 }

@@ -1,20 +1,25 @@
-﻿using Gameplay.Questions;
-using Infrastructure.ConfigProviders;
-using Zenject;
+﻿using System;
 
 namespace Gameplay
 {
   public class CurrentQuestionProvider
   {
-    public string Value { get; set; }
-    public string[] Answers { get; set; }
+    private readonly GameMatchProvider _gameMatchProvider;
 
-    public CurrentQuestionProvider(ConfigProvider configProvider)
+    public CurrentQuestionProvider(GameMatchProvider gameMatchProvider)
     {
-      var questionsConfig = configProvider.QuestionsConfig;
+      _gameMatchProvider = gameMatchProvider;
 
-      Value = questionsConfig.Questions[0].Question;
-      Answers = questionsConfig.Questions[0].Answers;
+      _gameMatchProvider.Instance.ValueChanged += OnGameMatchChanged;
+    }
+
+    public event Action<Question> Changed;
+
+    public Question GetCurrentQuestion => _gameMatchProvider.Instance.Value.Questions.Value.Peek();
+
+    private void OnGameMatchChanged(GameMatch match)
+    {
+      Changed?.Invoke(match.Questions.Value.Peek());
     }
   }
 }

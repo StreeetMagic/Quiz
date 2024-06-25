@@ -18,6 +18,9 @@ namespace Infrastructure.SceneInstallers.GameLoop
       Container.BindInterfacesAndSelfTo<UserIntefaceOperator>().AsSingle();
       Container.BindInterfacesAndSelfTo<GameLoopZenjectFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<CurrentQuestionProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<QuestionStorage>().AsSingle();
+      Container.BindInterfacesAndSelfTo<GameMatchFactory>().AsSingle();
+      Container.BindInterfacesAndSelfTo<GameMatchProvider>().AsSingle();
     }
   }
 }

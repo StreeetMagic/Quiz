@@ -9,7 +9,9 @@ namespace UserInterface
 {
   public class AnswerLetter : MonoBehaviour
   {
-    [FormerlySerializedAs("_answerButton")] [SerializeField] private AnswerIndexHolder answerIndexHolder;
+    [FormerlySerializedAs("_answerButton")] [SerializeField]
+    private AnswerIndexHolder answerIndexHolder;
+
     [SerializeField] private TextMeshProUGUI _text;
 
     private ConfigProvider _configProvider;
@@ -27,7 +29,7 @@ namespace UserInterface
 
     private void OnEnable()
     {
-      answerIndexHolder.Index.ValueChanged  += DisplayLetter;
+      answerIndexHolder.Index.ValueChanged += DisplayLetter;
     }
 
     private void OnDisable()

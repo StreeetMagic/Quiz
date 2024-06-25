@@ -21,7 +21,7 @@ namespace UserInterface
       _currentQuestionProvider = currentQuestionProvider;
     }
 
-    private void Awake()
+    private void Start()
     {
       DisplayText(answerIndexHolder.Index.Value);
     }
@@ -38,7 +38,7 @@ namespace UserInterface
 
     private void DisplayText(int index)
     {
-      _text.text = _currentQuestionProvider.Answers[index];
+      _text.text = _currentQuestionProvider.GetCurrentQuestion.Answers[index];
     }
   }
 }
